@@ -1,8 +1,4 @@
-require 'pry'
-require 'pry-debugger'
 
-students = ["Ben", "Eric", "Ryan", "Tony", "Joe"]
-group_size = 3
 
 def create_groups(students, group_size)
   students.shuffle
@@ -28,6 +24,35 @@ def create_groups(students, group_size)
 for i in 0..array_of_groups.length-1
   puts array_of_groups[i].to_s
 end
+end
+
+require 'rainbow'
+require 'pry'
+require 'pry-debugger'
+
+def menu
+  puts `clear`
+  puts "Labpartners Generator"
+  print "Select: (s)ize of group or (q)uit application "
+  gets.chomp.downcase
+end
+
+responce = menu
+
+while responce != 'q'
+  case responce
+  when 's'
+    print "What is the size of your group? "
+    group_size = gets.chomp.to_i
+
+      create_groups(students, group_size)
+
+
+    print "Your group's are as follows: #{create_groups}"
+
+  end
+
+  responce = menu
 end
 
 
