@@ -1,0 +1,17 @@
+<% @rows.each do |row| %>
+  <section>
+
+    <form action='/videos/<%= row['id'] %>/delete' method='post'>
+        <button>Delete</button>
+    </form>
+
+    <a href='/videos/<%= row['id'] %>/edit/'>Edit</a>
+
+    <%= row['title'] %>
+    <%= row['genre'] %>
+    <%= row['description'] %>
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/<%= row['url'] %>" frameborder="0" allowfullscreen></iframe>
+  </section>
+<% end %>
+
+
