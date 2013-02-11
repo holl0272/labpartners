@@ -1,0 +1,19 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+section {
+  float: left;
+  border: 1px dashed green;
+}
+
+
+#dynamic_btn {
+  float: right;
+  margin-top: 5px;
+}
+
+#search_icon {
+  margin-left: 10px;
+}

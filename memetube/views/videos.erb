@@ -2,10 +2,10 @@
   <section>
 
     <form action='/videos/<%= row['id'] %>/delete' method='post'>
-        <button>Delete</button>
+        <button class="btn btn-danger">Delete Video</button>
     </form>
 
-    <a href='/videos/<%= row['id'] %>/edit/'>Edit</a>
+    <a href='/videos/<%= row['id'] %>/edit/'><button class="btn btn-warning">Edit Video</button></a>
 
     <%= row['title'] %>
     <%= row['genre'] %>

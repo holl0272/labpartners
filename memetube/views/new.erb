@@ -1,7 +1,41 @@
-<form method='post' action='<%= @row.nil? ? "/create" : "/videos/#{@row['id']}" %>'>
-  <input value='<%= @row['title'] if @row %>' type='text' name='title' autofocus>
-  <input value='<%= @row['description'] if @row %>'type='text' name='description'>
-  <input value='<%= @row['url'] if @row %>'type='text' name='url'>
-  <input value='<%= @row['genre'] if @row %>'type='text' name='genre'>
-  <button><%= @row.nil? ? "Create" : "Edit" %></button>
-</form>
+<div class="row">
+  <div class="span6">
+
+    <form id="create" method='post' action='<%= @row.nil? ? "/create" : "/videos/#{@row['id']}" %>'>
+      <fieldset>
+        <legend>Video Details
+          <button id="dynamic_btn" type="submit" class="<%= @row.nil? ? "btn btn-success" : "btn btn-warning" %>"> <%= @row.nil? ? "Submit" : "Edit" %></button>
+        </legend>
+
+          <label>Title:</label>
+            <input value='<%= @row['title'] if @row %>' type='text' name='title' autofocus>
+
+          <label>Genre:</label>
+            <input value='<%= @row['genre'] if @row %>'type='text' name='genre'>
+
+          <label>YouTube ID:</label>
+            <span class="help-block">http://youtu.be/<strong>VIDEO ID</strong></span>
+            <input value='<%= @row['url'] if @row %>'type='text' name='url' placeholder="Insert ID Only">
+
+          <!-- <label>YouTube ID:</label>
+            <span class="help-block">http://youtu.be/<strong>VIDEO ID</strong></span>
+            <input id='<%= @row.nil? ? " " : "disabledInput" %>' value='<%= @row['url'] if @row %>'type='text' name='url' placeholder="Insert ID Only" <%= @row.nil? ? " " : "disabled" %>> -->
+
+          <label>Description:</label>
+            <input class="input-xxlarge" value='<%= @row['description'] if @row %>'type='text' name='description'>
+          <span class="help-block"><%= @row.nil? ? "Click <font color='#51a351'><strong><em>Submit</em></strong></font> above to Add this Video to your Library or <font color='#0044cc'><strong><em>Discard</em></strong></font> below to Cancel" : "Click <font color='#f89406'><strong><em>Edit</em></strong></font> to Submit these Changes or <font color='#0044cc'><strong><em>Discard</em></strong></font> to Cancel" %></span>
+          </fieldset>
+        </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span1">
+
+    <form action='/' method='get'>
+      <button id="cancel_btn" type="submit" class="btn btn-primary">Discard</button>
+    </form>
+
+  </div>
+</div>
+
